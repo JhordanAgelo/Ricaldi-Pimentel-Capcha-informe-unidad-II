@@ -1,9 +1,11 @@
 import React from 'react'
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
-import { db } from '../../firebase/config'
+import { db,storage } from '../../firebase/config'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { collection,addDoc } from 'firebase/firestore'
+import { ref, uploadBytes,getDownloadURL } from 'firebase/storage';
+
 
 const NuevoPlatillo = () => {
 
@@ -27,20 +29,29 @@ const NuevoPlatillo = () => {
                     .min(1,'El precio es obligatorio'),
             categoria: Yup.string()
                     .required('La categoria es obligatoria'),
-            // imagen: Yup.file()
-            //         .required('Falto agregar imagen'),
+            imagen: Yup.mixed()
+                    .required('Falto agregar imagen'),
             descripcion: Yup.string()
                     .required('Debes agregar una descripcion')
     
         }),
         onSubmit: async (values) => {
             try {
-        
-              // Envía los datos del formulario a Firestore
-              values.existencia=true
-              await addDoc(collection(db, 'platillos'), values);
-              console.log('Datos enviados correctamente a Firestore');
-              navigate('/menu');
+                // Subir la imagen a Firebase Storage
+                const imagenFile = values.imagen;
+                const storageRef = ref(storage, `imagenes/${imagenFile.name}`);
+                await uploadBytes(storageRef, imagenFile);
+
+                // Obtener la URL de descarga de la imagen
+                const imagenURL = await getDownloadURL(storageRef);
+
+                // Agregar la URL de la imagen a los datos del platillo
+                values.imagen = imagenURL;
+                // Envía los datos del formulario a Firestore
+                values.existencia=true
+                await addDoc(collection(db, 'platillos'), values);
+                console.log('Datos enviados correctamente a Firestore');
+                navigate('/menu');
             } catch (error) {
               console.error('Error al enviar datos a Firestore:', error);
             }
@@ -120,8 +131,8 @@ const NuevoPlatillo = () => {
                             <input 
                             type="file" className=" shadow appearance-none border rounded px-3 py-2 w-full leading-tight focus:outline-none focus:outline"
                             id='imagen'
-                            value={formik.values.imagen}
-                            onChange={formik.handleChange}
+    
+                            onChange={(event) => formik.setFieldValue("imagen", event.target.files[0])}
                             onBlur={formik.handleBlur}
                             />
                         </div>
