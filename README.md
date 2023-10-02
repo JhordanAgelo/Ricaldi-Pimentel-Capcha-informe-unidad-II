@@ -18,21 +18,16 @@ Sigue estos pasos para configurar y ejecutar la aplicación en tu entorno local:
 
 ### Página de Administración (React)
 
-1. Clona este repositorio en tu máquina local.
 
-https://github.com/JhordanAgelo/Ricaldi-Pimentel-Capcha-informe-unidad-II.git
-
-- **Instalación del paquete XYZ:**
+- **1. Clona este repositorio en tu máquina local.**
 
   ```bash
-  npm install paquete-xyz
+  git clone https://github.com/JhordanAgelo/Ricaldi-Pimentel-Capcha-informe-unidad-II.git
 
 - **2. Navega al directorio de la página de administración.:**
 
   ```bash
   cd nutriconti/admin-react
-
-
 
 - **3. Instala las dependencias:**
 
@@ -67,14 +62,10 @@ La página de administración estará disponible en [http://localhost:3000](http
   npm install
 
 
-
 - **4. Inicia la aplicación.**
 
   ```bash
   npx react-native run-android
-
-
-
 
 
 Asegúrate de tener un emulador de Android o un dispositivo Android conectado para ejecutar la aplicación móvil.
