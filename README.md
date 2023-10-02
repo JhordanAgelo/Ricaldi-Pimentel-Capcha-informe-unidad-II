@@ -6,12 +6,27 @@ NutriConti es una aplicación que consta de dos partes: una página de administr
 
 - **Diego Capcha Leyva**
 - **Hugo Walter Pimentel Palomino**
-- **Jhordan Ricaldi Méndez**
+- **Jhordan Ricaldi Mendez**
 
-## Informe Unidad II
+# Informe Unidad II
 
-Nuestro informe de la Unidad II se encuentra en el directorio raíz de este repositorio. Puedes acceder a él [aquí](Ricaldi-Pimentel-Capcha-informe-unidad-II).
+Este repositorio contiene el informe de la Unidad II de nuestro proyecto.
 
+## Descripción
+
+En este informe, se detallan los resultados y hallazgos de la Unidad II de nuestro proyecto. Se incluyen análisis, conclusiones y recomendaciones.
+
+## Contenido
+
+El informe se encuentra en formato PDF y puede ser accedido [aquí](https://github.com/JhordanAgelo/Ricaldi-Pimentel-Capcha-informe-unidad-II/blob/83a2ba34d6f5403822f3e37ed2f7a0660c00c24f/Ricaldi-Pimentel-Capcha-informe-unidad-II%20.pdf).
+
+## Contribuciones
+
+- Diego Capcha Leyva 
+- Hugo Walter Pimentel Palomino
+- Jhordan Ricaldi Mendez
+
+  
 ## Instalación y Uso
 
 Sigue estos pasos para configurar y ejecutar la aplicación en tu entorno local:
