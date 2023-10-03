@@ -61,7 +61,7 @@ const NuevoPlatillo = () => {
 
     return ( 
         <>
-            <div className=" font-gray-400 mt-6 ml-5 font-bold text-lg">
+            <div className=" font-gray-400 mt-6 mb-10 ml-5  font-bold text-lg">
                 Agregar Platillo
             </div>
 
@@ -159,7 +159,13 @@ const NuevoPlatillo = () => {
                                 <p className=' text-sm m-2 mt-0 pt-0' >{formik.errors.descripcion}</p>
                             </div>
                         ):null}
-                        <input type="submit" value="Agregar platillo" className="mt-4 bg-gray-800 block w-full text-white uppercase py-2 font-bold text-sm"/>
+                        <div class="group">
+                            <input
+                                type="submit"
+                                value="Agregar platillo"
+                                class="mt-4 bg-gray-800 block hover:bg-gray-600 w-full text-white uppercase py-2 font-bold text-sm cursor-pointer transition duration-150 ease-in-out transform-gpu group-hover:scale-105"
+                            />
+                        </div>
                     </form>
                 </div>
             </div>

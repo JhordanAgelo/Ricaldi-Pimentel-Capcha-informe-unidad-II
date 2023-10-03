@@ -1,0 +1,5 @@
+/* styles.css o tu archivo de estilos */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  

@@ -22,13 +22,15 @@ const Menu = () => {
   return (
     <div className="mt-6 ml-8">
       <div className="pb-4 text-3xl">Menu</div>
-      <Link className="bg-gray-700 text-xs text-white p-2 font-bold" to="/nuevo-platillo">
-        AGREGAR PLATILLO
-      </Link>
+      <div className="mb-4">
+        <Link className="bg-gray-700 text-xs my-8 text-white p-2 font-bold" to="/nuevo-platillo">
+          AGREGAR PLATILLO
+        </Link>
+      </div>
 
       {/* Itera a través de los platillos y muestra la información */}
       {platillos.map((platillo, index) => (
-        <div className="w-full px-3 mb-4" key={index}>
+        <div className="w-full px-3 mb-4 " key={index}>
           <div className="p-5 shadow-md bg-white">
             <div className="lg:flex">
               <div className="lg:w-5/12 xl:w-3/12">
@@ -56,7 +58,7 @@ const Menu = () => {
                 </p>
                 <p className="text-gray-600 mb-4">{platillo.descripcion}</p>
                 <p className="text-gray-600 mb-4">Precio:
-                  <span className="text-gray-700 font-bold"> ${platillo.precio}</span>
+                  <span className="text-gray-700 font-bold"> S/  {platillo.precio}</span>
                 </p>
               </div>
             </div>

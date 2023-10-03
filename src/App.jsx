@@ -11,10 +11,13 @@ import SideBar from './components/ui/SideBar'
 
 
 function App() {
+
+
   return (
-      <div className=' md:flex'>
-        <SideBar/>
-        <div className='md:w-2/3'>
+      <div className='flex md:flex'>
+        <SideBar />
+
+        <div className='md:w-2/3 ml-auto overflow-y-scroll'>
           <Routes>
             <Route path="/" element={<Ordenes/>}/>
             <Route path="/menu" element={<Menu/>}/>
