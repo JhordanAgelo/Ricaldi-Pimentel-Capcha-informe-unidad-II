@@ -5,7 +5,7 @@ import { db,storage } from '../../firebase/config'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { collection,addDoc } from 'firebase/firestore'
 import { ref, uploadBytes,getDownloadURL } from 'firebase/storage';
-
+import FileUploader from "react-firebase-file-uploader";
 
 const NuevoPlatillo = () => {
 
@@ -159,11 +159,11 @@ const NuevoPlatillo = () => {
                                 <p className=' text-sm m-2 mt-0 pt-0' >{formik.errors.descripcion}</p>
                             </div>
                         ):null}
-                        <div class="group">
+                        <div className="group">
                             <input
                                 type="submit"
                                 value="Agregar platillo"
-                                class="mt-4 bg-gray-800 block hover:bg-gray-600 w-full text-white uppercase py-2 font-bold text-sm cursor-pointer transition duration-150 ease-in-out transform-gpu group-hover:scale-105"
+                                className="mt-4 bg-gray-800 block hover:bg-gray-600 w-full text-white uppercase py-2 font-bold text-sm cursor-pointer transition duration-150 ease-in-out transform-gpu group-hover:scale-105"
                             />
                         </div>
                     </form>

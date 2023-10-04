@@ -1,23 +1,33 @@
-import React, { useEffect, useState } from "react"; // Agrega useState
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { db } from '../../firebase/config';
-import { collection, getDocs } from "firebase/firestore"; // Quita onSnapshot y QuerySnapshot, ya que no los usas
+import { collection, onSnapshot, updateDoc, doc } from "firebase/firestore";
 
 const Menu = () => {
-  const [platillos, setPlatillos] = useState([]); // Agrega estado para almacenar los platillos
+  const [platillos, setPlatillos] = useState([]);
 
   useEffect(() => {
-    async function getData() {
-      try {
-        const querySnapshot = await getDocs(collection(db, 'platillos'));
-        const platilloData = querySnapshot.docs.map((doc) => doc.data());
-        setPlatillos(platilloData); // Actualiza el estado con los datos de los platillos
-      } catch (error) {
-        console.error("Error al obtener los datos:", error);
-      }
+    const unsubscribe = onSnapshot(collection(db, 'platillos'), (snapshot) => {
+      const platilloData = snapshot.docs.map((doc) => {
+        const data = doc.data();
+        return { ...data, id: doc.id };
+      });
+      setPlatillos(platilloData);
+    });
+
+    return () => unsubscribe(); // Limpia la suscripción cuando el componente se desmonta
+  }, []);
+
+  const actualizarDisponibilidad = async (platilloId, nuevaDisponibilidad) => {
+    try {
+      const platilloRef = doc(db, 'platillos', platilloId);
+      await updateDoc(platilloRef, {
+        existencia: nuevaDisponibilidad
+      });
+    } catch (error) {
+      console.error("Error al actualizar la disponibilidad:", error);
     }
-    getData();
-  }, []); // Agrega un array vacío para que useEffect se ejecute solo una vez
+  };
 
   return (
     <div className="mt-6 ml-8">
@@ -28,7 +38,6 @@ const Menu = () => {
         </Link>
       </div>
 
-      {/* Itera a través de los platillos y muestra la información */}
       {platillos.map((platillo, index) => (
         <div className="w-full px-3 mb-4 " key={index}>
           <div className="p-5 shadow-md bg-white">
@@ -39,9 +48,9 @@ const Menu = () => {
                   <label className="block mt-5 sm:w-2/4">
                     <span className="block text-gray-800 mb-2">Existencia</span>
                     <select
-                      className="bg-white shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+                      className="bg-white shadow appearance-none border rounded text-center w-auto  py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                       value={platillo.existencia}
-                      onChange={() => actualizarDisponibilidad()}
+                      onChange={(e) => actualizarDisponibilidad(platillo.id, e.target.value === "true")}
                     >
                       <option value="true">Disponible</option>
                       <option value="false">No Disponible</option>
