@@ -40,7 +40,7 @@ Sigue estos pasos para configurar y ejecutar la aplicación en tu entorno local:
 - **2. Navega al directorio de la página de administración.:**
 
   ```bash
-  cd nutriconti/admin-react
+  cd Ricaldi-Pimentel-Capcha-informe-unidad-II/admin-react
 
 - **3. Instala las dependencias:**
 
@@ -50,7 +50,7 @@ Sigue estos pasos para configurar y ejecutar la aplicación en tu entorno local:
 - **4. Inicia la aplicación.:**
 
   ```bash
-  npm start
+  npm run dev
 
 
 
@@ -67,7 +67,7 @@ La página de administración estará disponible en [http://localhost:3000](http
 - **2. Navega al directorio de la aplicación para clientes:**
 
   ```bash
-  cd nutriconti/client-react-native
+  cd Ricaldi-Pimentel-Capcha-informe-unidad-II/client-react-native
 
 - **3. Instala las dependencias:**
 
