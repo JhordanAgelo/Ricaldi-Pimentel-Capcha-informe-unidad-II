@@ -8,6 +8,8 @@ import Ordenes from './components/paginas/Ordenes'
 import Menu from './components/paginas/Menu'
 import NuevoPlatillo from './components/paginas/NuevoPlatillo'
 import SideBar from './components/ui/SideBar'
+import Prediccion from './components/paginas/Prediccion'
+import DetallePlato from './components/paginas/DetallePlato'
 
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
             <Route path="/" element={<Ordenes/>}/>
             <Route path="/menu" element={<Menu/>}/>
             <Route path="/nuevo-platillo" element={<NuevoPlatillo/>}/>
+            <Route path="/prediccion" element={<Prediccion/>}/>
+            <Route path="/menu/:platilloId" element={<DetallePlato />} />
           </Routes>
         </div>
 

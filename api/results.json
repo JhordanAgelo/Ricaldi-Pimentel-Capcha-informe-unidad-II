@@ -1,0 +1,10 @@
+[
+    {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Pizza_%284738720687%29.jpg/800px-Pizza_%284738720687%29.jpg",
+        "prediction": "La comida en la imagen no es saludable."
+    },
+    {
+        "url": "https://i.pinimg.com/564x/8d/91/eb/8d91ebf88ed4ed70bc8fd39f1f7fe7c4.jpg",
+        "prediction": "La comida en la imagen es saludable."
+    }
+]
