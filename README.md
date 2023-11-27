@@ -12,7 +12,7 @@ Este repositorio contiene el informe de la Unidad II de nuestro proyecto.
 
 ## Descripción
 
-En este informe, se detallan los resultados y hallazgos de la Unidad II de nuestro proyecto. Se incluyen análisis, conclusiones y recomendaciones.
+En este informe, se detallan los resultados y hallazgos de la Unidad I,II,III Y IV de nuestro proyecto. Se incluyen análisis, conclusiones y recomendaciones.
 
 ## Contenido
 
@@ -63,13 +63,13 @@ La página de administración estará disponible en [http://localhost:3000](http
 - **1. Clona este repositorio en tu máquina local (si aún no lo has hecho):**
 
   ```bash
-  git clone https://github.com/JhordanAgelo/Ricaldi-Pimentel-Capcha-informe-unidad-II.git
+  git clone https://github.com/JhordanAgelo/Ricaldi-Pimentel-Capcha-Proyecto-Final.git
 
 
 - **2. Navega al directorio de la aplicación para clientes:**
 
   ```bash
-  cd Ricaldi-Pimentel-Capcha-informe-unidad-II/client-react-native
+  cd Ricaldi-Pimentel-Capcha-Proyecto-Final/client-react-native
 
 - **3. Instala las dependencias:**
 
