@@ -6,7 +6,7 @@
 - **Hugo Walter Pimentel Palomino**
 - **Jhordan Ricaldi Mendez**
 
-# Informe Unidad II
+# Informe Final
 
 Este repositorio contiene el informe de la Unidad II de nuestro proyecto.
 
