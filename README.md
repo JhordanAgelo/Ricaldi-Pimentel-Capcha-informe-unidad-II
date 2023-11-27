@@ -8,7 +8,7 @@
 
 # Informe Final
 
-Este repositorio contiene el informe de la Unidad II de nuestro proyecto.
+Este repositorio contiene el informe de nuestro proyecto.
 
 ## Descripción
 
