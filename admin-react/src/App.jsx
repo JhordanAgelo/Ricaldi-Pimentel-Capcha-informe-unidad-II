@@ -12,6 +12,7 @@ import Prediccion from './components/paginas/Prediccion'
 import DetallePlato from './components/paginas/DetallePlato'
 
 
+
 function App() {
 
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="/nuevo-platillo" element={<NuevoPlatillo/>}/>
             <Route path="/prediccion" element={<Prediccion/>}/>
             <Route path="/menu/:platilloId" element={<DetallePlato />} />
+          
           </Routes>
         </div>
 

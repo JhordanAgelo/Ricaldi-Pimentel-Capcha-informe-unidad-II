@@ -5,7 +5,8 @@ import { db,storage } from '../../firebase/config'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { collection,addDoc } from 'firebase/firestore'
 import { ref, uploadBytes,getDownloadURL } from 'firebase/storage';
-import FileUploader from "react-firebase-file-uploader";
+
+import Ingredientes from '../ui/Ingredientes'
 
 const NuevoPlatillo = () => {
 
@@ -18,7 +19,9 @@ const NuevoPlatillo = () => {
             precio:'',
             categoria:'',
             imagen:'',
-            descripcion:''
+            descripcion:'',
+            ingredientes: [],
+            nuevoIngrediente: '',
 
         },
         validationSchema: Yup.object({
@@ -37,24 +40,19 @@ const NuevoPlatillo = () => {
         }),
         onSubmit: async (values) => {
             try {
-                // Subir la imagen a Firebase Storage
                 const imagenFile = values.imagen;
                 const storageRef = ref(storage, `imagenes/${imagenFile.name}`);
                 await uploadBytes(storageRef, imagenFile);
-
-                // Obtener la URL de descarga de la imagen
                 const imagenURL = await getDownloadURL(storageRef);
-
-                // Agregar la URL de la imagen a los datos del platillo
                 values.imagen = imagenURL;
-                // Envía los datos del formulario a Firestore
-                values.existencia=true
+        
+                values.existencia = true;
                 await addDoc(collection(db, 'platillos'), values);
                 console.log('Datos enviados correctamente a Firestore');
                 navigate('/menu');
-            } catch (error) {
-              console.error('Error al enviar datos a Firestore:', error);
-            }
+              } catch (error) {
+                console.error('Error al enviar datos a Firestore:', error);
+              }
         }
     })
 
@@ -154,11 +152,16 @@ const NuevoPlatillo = () => {
                                 
                             ></textarea>
                         </div>
+
+                        
                         {formik.touched.descripcion && formik.errors.descripcion ? (
                             <div className=' text-red-400'>
                                 <p className=' text-sm m-2 mt-0 pt-0' >{formik.errors.descripcion}</p>
                             </div>
                         ):null}
+
+                        <Ingredientes formik={formik} />
+
                         <div className="group">
                             <input
                                 type="submit"
